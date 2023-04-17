@@ -54,33 +54,33 @@ namespace MAGLabCL
                     confNumCounter += 1;
                 }
 
-			    // new value processing
-			    if (confirmedValue.CompareTo(newValue) != 0)
-			    {
-				    // if both the numeric value and the counter are above the ratio, we have a new value
-				    if (confNumCounter >= nReq)
-				    {
-					    if (time - lastConfTime > tReq)
-					    {
-						    confirmedValue = newValue;
-					    }
-				    }
-			    }
+                // new value processing
+                if (confirmedValue.CompareTo(newValue) != 0)
+                {
+                    // if both the numeric value and the counter are above the ratio, we have a new value
+                    if (confNumCounter >= nReq)
+                    {
+                        if (time - lastConfTime > tReq)
+                        {
+                            confirmedValue = newValue;
+                        }
+                    }
+                }
 
-			    // confirmed value processing
-			    if (confirmedValue.CompareTo(newValue) == 0)
-			    {
-				    confNumCounter = 0;
-				    lastConfTime = time;
-			    }
-		    }
+                // confirmed value processing
+                if (confirmedValue.CompareTo(newValue) == 0)
+                {
+                    confNumCounter = 0;
+                    lastConfTime = time;
+                }
+            }
 
-		    if (time - lastConfTime > tReq)
-		    {
-			    lastConfTime += 1;
-		    }
+            if (time - lastConfTime > tReq)
+            {
+                lastConfTime += 1;
+            }
 
             return confirmedValue;
-	    }
+        }
     }
 }
